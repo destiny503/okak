@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tahoma', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+canvas#visualizer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    transform: rotate(180deg);
+    background: transparent;
+    opacity: 0.5;
+}
+
+.okak {
+    z-index: 0;
+    opacity: 0;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transform: translateX(3%);
+    margin: 0 auto;
+    transition: opacity 8s ease-in-out;
+    -webkit-mask-image: radial-gradient(farthest-side at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+            mask-image: radial-gradient(farthest-side at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+}
+
+.okak.show {
+    opacity: 1;
+}
+
+.okak-text {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0;
+    font-size: clamp(2rem, 10vw, 8rem);
+    color: #b1b1b1;
+    cursor: pointer;
+    transition: opacity 4s ease-in-out;
+    transition-delay: 6s;
+    user-select: none;
+}
+
+.okak-text.show {
+    opacity: 1;
+}
+
+.okak-text.neon-text {
+    animation: glow 1.5s infinite alternate;
+    filter: drop-shadow(0 0 10px #ff005e) drop-shadow(0 0 20px #ff005e);
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 10px #ff005e) drop-shadow(0 0 20px #ff005e);
+    }
+    100% {
+        filter: drop-shadow(0 0 20px #00d4ff) drop-shadow(0 0 40px #00d4ff);
+    }
+}
