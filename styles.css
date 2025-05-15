@@ -58,7 +58,7 @@ canvas#visualizer {
 
 .okak-text {
     position: absolute;
-    bottom: 10%;
+    bottom: 16%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
